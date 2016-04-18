@@ -38,13 +38,17 @@
       <div data-ix="fade-in-bottom-page-loads" class="hero-subheading">Adventure Near you!!</div>
     </div>
     <div class="w-clearfix searchdiv">
-      <div class="searchbuttondiv"><a href="#" class="w-button button btn-btn-default">Search</a>
+    <form id="email-form" name="email-form" data-name="Email Form" class="w-clearfix" action="/search" method="post">
+      <div class="searchbuttondiv"><input type="submit" value="Search" class="w-button button btn-btn-default"></input>
       </div>
       <div>
         <div class="w-form">
-          <form id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
-            <input id="searchButton" type="text" placeholder="Enter any location" name="searchButton" data-name="searchButton" class="w-input searchtext form-control">
+          	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+           	<input id="searchButton" type="text" placeholder="Enter any location" name="search" data-name="searchButton" class="w-input searchtext form-control">
           </form>
+          @if ($errors->any())
+        	{{ implode('', $errors->all(':message')) }}
+        	@endif
           <div class="w-form-done">
             <p>Thank you! Your submission has been received!</p>
           </div>
