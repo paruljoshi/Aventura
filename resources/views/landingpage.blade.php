@@ -23,9 +23,11 @@
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
 <body>
+ <form id="email-form" name="email-form" data-name="Email Form" class="w-clearfix" action="/search" method="post">
   <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" class="w-nav navigation-bar">
     <div class="w-container nav-bar-links-container"><img width="70" src="images/Drawing-layerExport (1).jpeg" class="navbar-brand"><a href="{{ url('landingpage') }}" class="w-nav-brand brand-link"><h1 class="brand-text">Aventura</h1></a>
-      <nav role="navigation" class="w-nav-menu w-clearfix navigation-menu"><a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a><a href="index.html" class="w-nav-link navigation-link">Log In</a><a href="events.html" class="w-nav-link navigation-link">Sign Up</a><a href="events.html" class="w-nav-link navigation-link">0</a><img width="58" src="images/trolly.png">
+      <nav role="navigation" class="w-nav-menu w-clearfix navigation-menu"><a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a><a href="{{ url('home') }}" class="w-nav-link navigation-link">Log In</a><a href="{{ url('home') }}" class="w-nav-link navigation-link">Sign Up</a><a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
+      <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
       </nav>
       <div class="w-nav-button hamburger-button">
         <div class="w-icon-nav-menu"></div>
@@ -38,7 +40,6 @@
       <div data-ix="fade-in-bottom-page-loads" class="hero-subheading">Adventure Near you!!</div>
     </div>
     <div class="w-clearfix searchdiv">
-    <form id="email-form" name="email-form" data-name="Email Form" class="w-clearfix" action="/search" method="post">
       <div class="searchbuttondiv"><input type="submit" value="Search" class="w-button button btn-btn-default"></input>
       </div>
       <div>
@@ -102,7 +103,7 @@
             <p class="white-text">Locate all the adventures around you at that moment .
               <br>Locate &amp; plan adventures in advance for your trip .
               <br>Book your trip instantly or in advance.
-              <br>Buy/Rent &nbsp;your required gear if you don't have it.</p><a href="#" class="hollow-button">locate &amp; Buy</a>
+              <br>Buy/Rent &nbsp;your required gear if you don't have it.</p><a href={{url('#email-form') }} class="hollow-button">locate &amp; Buy</a>
           </div>
         </div>
         <div class="w-col w-col-6">
@@ -110,7 +111,7 @@
             <h3 class="white-text">promote &amp; earn</h3>
             <p class="white-text">Promote your adventure in Aventura.
               <br>Earn money by adding &nbsp;an adventure organized by you or if you don't see it here.
-              <br>Earn money by reporting &nbsp;something wrong about the adventure listed here.</p><a href="#" class="hollow-button all-caps">promote &amp; earn</a>
+              <br>Earn money by reporting &nbsp;something wrong about the adventure listed here.</p><a href="{{ url('home') }}" class="hollow-button all-caps">promote &amp; earn</a>
           </div>
         </div>
       </div>
@@ -146,7 +147,7 @@
           <p>Aventura is designed to solve the problem of tedious search on adventurous activities online. This application helps user to locate nearby activities, paid or free one's too.</p>
         </div>
         <div class="w-col w-col-4 spc">
-          <h5>useful links</h5><a href="#" class="footer-link">Phasellus gravida semper nisi</a><a href="#" class="footer-link">Suspendisse nisl elit</a><a href="#" class="footer-link">Dellentesque habitant morbi</a><a href="#" class="footer-link">Etiam sollicitudin ipsum</a>
+          <h5>useful links</h5><a href="{{ url('home') }}" class="footer-link">Your Account</a><a href="{{ url('cart') }}" class="footer-link">Your Orders</a><a href="#" class="footer-link">Shipping and Rental Rates and Policies</a><a href="{{ url('home') }}" class="footer-link">Manage your Profile</a>
         </div>
         <div class="w-col w-col-4">
           <h5>social</h5>
