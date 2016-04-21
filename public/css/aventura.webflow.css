@@ -243,7 +243,20 @@ p {
 
 .section-heading {
   margin-top: 0px;
-  margin-bottom: 16px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+}
+
+.event-heading {
+  width: 390px;
+  height: 44px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  color: #fff;
+  font-weight: 600;
 }
 
 .section-heading.centered {
@@ -260,8 +273,9 @@ p {
 }
 
 .section-subheading {
-  color: #fff;
-  font-weight: 300;
+  color: #192024;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .section-subheading.center {
@@ -471,15 +485,23 @@ p {
 }
 
 .search-option-form {
-  position: static;
+  position: relative;
   left: 0px;
   top: 0px;
+  right: 0px;
+  bottom: 0px;
   display: block;
+  overflow: visible;
   width: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
   padding-left: 0px;
   float: none;
   border: 1px solid #676770;
   background-color: #fff;
+  text-align: left;
+  text-decoration: none;
 }
 
 .price-option {
@@ -499,14 +521,21 @@ p {
 }
 
 .search-column {
+  position: static;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
   background-color: #fff;
+  direction: ltr;
+  text-align: left;
 }
 
 .map-column {
   margin-right: 0px;
-  margin-left: -1px;
+  margin-left: 0px;
   background-color: #fff;
 }
 
@@ -524,6 +553,62 @@ p {
   display: inline;
   margin-right: 0px;
   margin-left: 0px;
+}
+
+.search-result {
+  border: 2px solid #8e8e9c;
+  border-radius: 8px;
+  background-color: #69b9ff;
+  background-image: -webkit-linear-gradient(270deg, #3d88ca, #3d88ca);
+  background-image: linear-gradient(180deg, #3d88ca, #3d88ca);
+}
+
+.description {
+  display: inline-block;
+}
+
+.adventure-description {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.reviews {
+  left: 10px;
+  color: #fff;
+}
+
+.icon {
+  position: static;
+  overflow: visible;
+  margin-top: 10px;
+  margin-left: 5px;
+  float: none;
+}
+
+.adventure-item-div {
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/kayak.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/kayak.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+.adventure-results-image {
+  background-image: url('../images/example-bg.png');
+  background-position: 0px 0px;
+  background-size: 125px;
+}
+
+.search-results-are {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: left;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
