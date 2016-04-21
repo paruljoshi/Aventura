@@ -14,7 +14,7 @@ class EventController extends Controller
 {
     //
     public function index(){
-    	return view('event');
+    	return view('event.event');
     }
 
     public function filter(Request $request){
@@ -23,14 +23,10 @@ class EventController extends Controller
             //'ratings' => 'required',
         ]);
 		if ($validator->fails()) {
-            return redirect('event')
+            return redirect('event.event')
                         ->withErrors($validator)
                         ->withInput();
     	}else{
-    		//input from user
-            
-            //if(input('price')!= '')
-            //    $price = $request->input('price');
 
             $events = Session::get('events');
 
@@ -64,14 +60,23 @@ class EventController extends Controller
                 session(['events' => $events]);
 
             if($events){
-    			return view('event',['events' => $events]);
+    			return view('event.event',['events' => $events]);
     		}else{
     			$message = "Sorry no results found !!";
 
-    			return redirect('event')
+    			return redirect('event.event')
     					->withErrors($message)
                         ->withInput();
     		}
     	}
+    }
+
+    public function eventdetail(Request $request){
+        $eventId = $request->input('event_id');
+        $eventDetails = Event::where('id', '=',$eventId)->get();
+        if($eventId){
+            return view('event.eventdetail',['event_id' => $eventId, 'eventDetails'=> $eventDetails]);
+        }
+
     }
 }

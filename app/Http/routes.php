@@ -14,9 +14,9 @@
 Route::get('/landingpage','LandingPageController@index');
 Route::post('/search','LandingPageController@search');
 Route::post('/event','EventController@filter');
-Route::get('/event','EventController@index');
+Route::get('/event/event','EventController@index');
 Route::get('/cart','CartController@index');
-
+Route::post('/eventdetail','EventController@eventdetail');
 
 
 

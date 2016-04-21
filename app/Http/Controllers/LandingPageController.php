@@ -33,7 +33,7 @@ class LandingPageController extends Controller
     					->get();
     		if($events){
     		    Session::put('events',$events);
-                return view('event');
+                return view('event.event');
     		}else{
     			$message = "Sorry no results found";
 

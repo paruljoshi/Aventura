@@ -242,21 +242,14 @@ p {
 }
 
 .section-heading {
+  width: 390px;
+  height: 44px;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 10px;
   color: #fff;
   font-weight: 600;
   text-align: left;
-}
-
-.event-heading {
-  width: 390px;
-  height: 44px;
-  margin-bottom: 0px;
-  margin-left: 10px;
-  color: #fff;
-  font-weight: 600;
 }
 
 .section-heading.centered {
@@ -609,6 +602,168 @@ p {
   font-size: 25px;
   font-weight: 400;
   text-align: left;
+}
+
+.event-heading {
+  width: 390px;
+  height: 44px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.event-summary-section {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.event-details-section {
+  margin-bottom: 30px;
+  padding-right: 185px;
+}
+
+.event-summary-background-div {
+  display: block;
+  width: auto;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url('../images/kayak.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url('../images/kayak.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+.event-summary-col1 {
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.event-summary-img-slider {
+  height: 400px;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  margin-left: 0px;
+}
+
+.event-summary-img1 {
+  background-image: url('../images/kayak.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.event-summary-img2 {
+  background-image: url('../images/Adventure2.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.event-summary-img3 {
+  background-image: url('../images/Kayaking.13.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.event-summary-details-div {
+  margin-top: 79px;
+  margin-left: 10px;
+}
+
+.event-summary-details-heading {
+  border: 1px none #000;
+  color: #fff;
+  font-weight: 600;
+}
+
+.event-summary-heading {
+  margin-top: 0px;
+  margin-bottom: 12px;
+  border-style: none none solid;
+  border-width: 1px;
+  border-color: #ecf0f1;
+  color: #fff;
+  font-weight: 600;
+}
+
+.event-summary-rating-review {
+  display: inline-block;
+  margin-top: 0px;
+  margin-left: 43px;
+  color: #ecf0f1;
+  font-weight: 400;
+}
+
+.event-summary-rating-review-div {
+  margin-bottom: 0px;
+}
+
+.event-summary-rating-img {
+  margin-bottom: 5px;
+}
+
+.event-summary-ticket-heading {
+  color: #ecf0f1;
+  font-weight: 400;
+}
+
+.event-summary-button {
+  margin-top: 10px;
+  margin-left: 0px;
+  border-radius: 10px;
+}
+
+.event-details-div {
+  margin-top: 30px;
+  margin-left: 150px;
+}
+
+.event-details-heading {
+  border-bottom: 1px solid #676770;
+  font-weight: 600;
+}
+
+.event-details-button {
+  display: inline;
+  margin-left: 1px;
+  float: left;
+  clear: none;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.event-map-section {
+  margin: 0px 185px 20px 150px;
+  padding-top: 20px;
+}
+
+.event-add-review-div {
+  margin-right: 185px;
+  margin-left: 150px;
+  padding-right: 0px;
+}
+
+.event-details-view-review {
+  margin-top: 30px;
+  margin-right: 185px;
+  margin-left: 150px;
+}
+
+.event-details-user-review {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding-top: 10px;
+}
+
+.events-map {
+  border: 1px solid #49647b;
+}
+
+.event-summary-row {
+  margin-right: 185px;
+  margin-left: 150px;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {

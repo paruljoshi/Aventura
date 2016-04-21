@@ -203,7 +203,8 @@ $('input[name=paid]').change(function(){
       @endif
       @if(Session::has('events'))
       @foreach(Session::get('events') as $event)
-        <div class="adventure-item-div">
+        <div class="adventure-item-div" onClick="document.forms['event-detail'].submit();">
+        <form action ="/eventdetail" method="post" name = "event-detail">
           <h1 class="event-heading">{{ $event->name }}</h1>
           <div class="w-row">
             <div class="w-col w-col-6 reviews">{{ $event->ratings }}<img src="images/reviewStars3.png">
@@ -213,7 +214,10 @@ $('input[name=paid]').change(function(){
             </div>
           </div>
           <p class="adventure-description">{{ $event->desc }}</p>
+           <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>
         </div>
+        </form>
         @endforeach
         @endif
       </div>
