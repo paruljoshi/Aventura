@@ -137,6 +137,10 @@ p {
   background-color: #fff;
 }
 
+.navigation-menu {
+  margin-right: 120px;
+}
+
 .brand-text {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -764,6 +768,11 @@ p {
 .event-summary-row {
   margin-right: 185px;
   margin-left: 150px;
+}
+
+.aventura-icon {
+  margin-left: 35px;
+  float: left;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {

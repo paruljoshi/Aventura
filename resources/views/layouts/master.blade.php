@@ -23,6 +23,17 @@
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
 <body>
+<div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" class="w-nav navigation-bar">
+    <div class="w-container nav-bar-links-container"><img width="70" src="images/Drawing-layerExport (1).jpeg" class="navbar-brand"><a href="{{ url('landingpage') }}" class="w-nav-brand brand-link"><h1 class="brand-text">Aventura</h1></a>
+      <nav role="navigation" class="w-nav-menu w-clearfix navigation-menu"><a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a><a href="{{ url('home') }}" class="w-nav-link navigation-link">Log In</a><a href="{{ url('home') }}" class="w-nav-link navigation-link">Sign Up</a><a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
+      <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
+      </nav>
+      <div class="w-nav-button hamburger-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  
   @yield('content')
 
   <div class="w-section footer">
