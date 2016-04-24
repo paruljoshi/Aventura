@@ -119,6 +119,11 @@ p {
   background-color: #2e80b6;
 }
 
+.button.btn-btn-default.add-event {
+  display: inline-block;
+  float: right;
+}
+
 .navigation-link {
   float: left;
   clear: none;

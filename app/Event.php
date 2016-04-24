@@ -13,7 +13,7 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'desc','country','ticket',
+        'name', 'desc','country','ticket',
         ];
 
     /**
@@ -21,5 +21,12 @@ class Event extends Model
      *
      * @var array
      */
+    public function users(){
+        $this->belongsTo('App\User');
+    }
+
+    public function reviews(){
+        $this->hasMany('App\Review');
+    }
 
 }

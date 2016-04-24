@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
   <form id="email-form" name="email-form" data-name="Email Form" class="w-clearfix" action="/search" method="post">
@@ -13,7 +13,7 @@
       <div>
         <div class="w-form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input id="searchButton" type="text" placeholder="Enter any location" name="search" data-name="searchButton" class="w-input searchtext form-control">
+            <input id="searchButton" type="text" placeholder="Enter any location" style="height: 45px; width: 435px;" name="search" data-name="searchButton" class="w-input searchtext form-control">
           </form>
           @if ($errors->any())
             {{ implode('', $errors->all(':message')) }}

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Validator;
 use App\Event;
 use App\Http\Controllers\View;
 use DB;
 use Illuminate\Support\Facades\Session;
 
-class LandingPageController extends Controller
+
+class WelcomeController extends Controller
 {
     //
-    public function index(){
-    	return view('landingpage');
+        public function index(){
+    	return view('/');
     }
 
     public function search(Request $request){
@@ -22,7 +23,8 @@ class LandingPageController extends Controller
             'search' => 'required',
         ]);
 		if ($validator->fails()) {
-            return redirect('landingpage')
+            //redirects to welcome
+            return redirect('/')
                         ->withErrors($validator)
                         ->withInput();
     	}else{
@@ -33,11 +35,11 @@ class LandingPageController extends Controller
     					->get();
     		if($events){
     		    Session::put('events',$events);
-                return view('event.event');
+                return view('eventlist');
     		}else{
     			$message = "Sorry no results found";
 
-    			return redirect('landingpage')
+    			return redirect('/')
     					->withErrors($message)
                         ->withInput();
     		}

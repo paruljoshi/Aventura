@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/landingpage','LandingPageController@index');
-Route::post('/search','LandingPageController@search');
-Route::post('/event','EventController@filter');
-Route::get('/event/event','EventController@index');
-Route::get('/cart','CartController@index');
-Route::post('/eventdetail','EventController@eventdetail');
 
+Route::post('/search','WelcomeController@search');
+
+Route::post('/eventdetail','EventController@detail');
+Route::get('/eventadd','EventController@add');
+Route::post('/eventsave','EventController@save');
+Route::post('/filter','EventController@filter');
+Route::get('/eventlist','EventController@index');
+
+Route::get('/cart','CartController@index');
 
 
 Route::get('/', function () {

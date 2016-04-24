@@ -24,6 +24,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function events(){
+        return $this->hasMany('App\Event');
+
+    }
+
+    public function reviews(){
+        $this->hasMany('App\Review');
+    }
 
     public function reports() {
         return $this->hasMany('Report');
@@ -33,7 +41,7 @@ class User extends Authenticatable
         return $this->hasMany('Search');
     }    
 
-    public function purchase() {
+    public function purchases() {
         return $this->hasMany('Purchase');
     }
 }

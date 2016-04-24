@@ -67,7 +67,7 @@ class EventTableSeeder extends Seeder
                 'ratings' => rand(1,5),
                 'reviewed' =>rand(0,1),
                 'addedByUser' => rand(0,1),
-
+                'user_id' => rand(0,10),
             ]);
         }
     }

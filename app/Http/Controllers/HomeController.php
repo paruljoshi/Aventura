@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Validator;
+use App\Event;
+use App\Http\Controllers\View;
+use DB;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -26,4 +31,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
 }

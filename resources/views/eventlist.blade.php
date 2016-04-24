@@ -4,13 +4,12 @@
 <script type="text/javascript">
 $('input[name=paid]').change(function(){
      $('form').submit();
-
 });
 </script>
   <div class="w-row search-column">
     <div class="w-col w-col-3 search-column">
       <div class="w-form search-option-form">
-        <form id="wf-form-search-options" name="wf-form-search-options" action="/event" method="post" data-name="search-options" class="search-option-form">
+        <form id="wf-form-search-options" name="wf-form-search-options" action="/filter" method="post" data-name="search-options" class="search-option-form">
           <div class="activity-option">
             <label for="name">Activities :</label>
             <div class="w-checkbox">
@@ -197,55 +196,53 @@ $('input[name=paid]').change(function(){
 
 <!--<html>
 <head>
-	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'>
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'>
 </script>
 </head>
 <body>
 <script type="text/javascript">
 $('input[name=paid]').change(function(){
      $('form').submit();
-
 });
 </script>
-	<h2>Your search results are:</h2>
-	<table  border="1" style="width:100%">
+  <h2>Your search results are:</h2>
+  <table  border="1" style="width:100%">
     <tr>
     <h3>
-		<th>Name</th>
-		<th>Description</th>
-		<th>Timings</th>
-		<th>Ticket</th>
-		<th>Ratings</th>
-	</h3>
-	</tr>
-	
-	@if(Session::has('events'))
-	@foreach(Session::get('events') as $event)
-		<tr>
-			<td>{{ $event->name }} </td>
-			<td>{{ $event->desc }} </td>
-			<td>{{ $event->timings }}</td>
-			<td>{{ $event->ticket }} </td>
-			<td>{{ $event->ratings }} </td>
-		</tr>
-	@endforeach
-	@endif
-	
-	
+    <th>Name</th>
+    <th>Description</th>
+    <th>Timings</th>
+    <th>Ticket</th>
+    <th>Ratings</th>
+  </h3>
+  </tr>
+  
+  @if(Session::has('events'))
+  @foreach(Session::get('events') as $event)
+    <tr>
+      <td>{{ $event->name }} </td>
+      <td>{{ $event->desc }} </td>
+      <td>{{ $event->timings }}</td>
+      <td>{{ $event->ticket }} </td>
+      <td>{{ $event->ratings }} </td>
+    </tr>
+  @endforeach
+  @endif
+  
+  
     </table>
-
     Ratings: 
     <form action="/event" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <select name = "ratings">
-    	<option value="nil"> </option>
-	  <option value="1">1</option>
-	  <option value="2">2</option>
-	  <option value="3">3</option>
-	  <option value="4">4</option>
-	</select>
-	<input type="radio" name="paid" onchange="this.form.submit();" value="3" checked="checked"/>No<br>
-	<input type="radio" name="paid" onchange="this.form.submit();" value="5"/>Yes
+      <option value="nil"> </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <input type="radio" name="paid" onchange="this.form.submit();" value="3" checked="checked"/>No<br>
+  <input type="radio" name="paid" onchange="this.form.submit();" value="5"/>Yes
     <input type="submit" value="Search"></input>
    </form>
 @if ($errors->any())

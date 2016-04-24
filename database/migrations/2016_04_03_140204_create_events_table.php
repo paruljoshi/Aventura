@@ -28,6 +28,7 @@ class CreateEventsTable extends Migration
             $table->boolean('recommended');
             $table->boolean('reviewed');
             $table->boolean('addedByUser');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

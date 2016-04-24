@@ -22,7 +22,7 @@
             </div>
           </div>
           @if($eventDetails)
-		@foreach($eventDetails as $event)
+      @foreach($eventDetails as $event)
           <div class="w-col w-col-6 event-summary-col2">
             <div class="event-summary-details-div">
               <h1 class="event-summary-heading">{{$event->name}}</h1>
@@ -43,11 +43,12 @@
         <p class="event-details-description">
         {{$event-> desc}}
           <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
-          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p><a href="#" class="w-button event-details-button">Buy Now</a>
+          <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+          <a href="#" class="w-button event-details-button">Buy Now</a>
       </div>
     </div>
     @endforeach
-	@endif
+  @endif
     <div class="w-section event-add-review-section">
       <div class="event-add-review-div">
         <h1 class="event-details-heading">Share your adventure</h1>
@@ -82,11 +83,11 @@
       <div data-widget-latlng="51.511214,-0.119824" data-widget-style="roadmap" data-widget-zoom="12" class="w-widget w-widget-map events-map"></div>
     </div>
   </div>
-@endsection
+  @endsection
 <!--<!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
 </head>
 <body>
 @if($event_id)
