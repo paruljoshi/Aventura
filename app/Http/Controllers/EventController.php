@@ -10,6 +10,7 @@ use App\Http\Controllers\View;
 use DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Review;
 
 class EventController extends Controller
 {
@@ -108,8 +109,9 @@ class EventController extends Controller
     public function detail(Request $request){
         $eventId = $request->input('event_id');
         $eventDetails = Event::where('id', '=',$eventId)->get();
+        $eventReviews = Review::where('event_id', '=', $eventId)->get();
         if($eventId){
-            return view('eventdetail',['event_id' => $eventId, 'eventDetails'=> $eventDetails]);
+            return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews]);
         }
 
     }

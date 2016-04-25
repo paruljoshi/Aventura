@@ -274,6 +274,14 @@ p {
   color: #fff;
 }
 
+.section-heading.centered.white.welcomepage {
+  width: auto;
+}
+
+.section-heading.centered.welcomepage {
+  width: auto;
+}
+
 .section-subheading {
   color: #192024;
   font-size: 24px;
@@ -578,8 +586,14 @@ p {
 
 .reviews {
   left: 10px;
+  height: 30px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  background-color: transparent;
   color: #fff;
+  text-decoration: underline;
 }
+
 
 .icon {
   position: static;

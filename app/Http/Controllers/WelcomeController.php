@@ -9,6 +9,8 @@ use App\Event;
 use App\Http\Controllers\View;
 use DB;
 use Illuminate\Support\Facades\Session;
+use App\Review;
+use App\Http\Controllers\stdClass;
 
 
 class WelcomeController extends Controller
@@ -33,6 +35,12 @@ class WelcomeController extends Controller
     		$events = DB::table('events')
     					->where('name','LIKE', '%' . $searchEvent . '%')	
     					->get();
+            foreach($events as $index => $event){
+                $reviews = DB::table('reviews')
+                            ->where('event_id','=',$event->id)
+                            ->count();
+                $event->reviewCount = $reviews;
+            }
     		if($events){
     		    Session::put('events',$events);
                 return view('eventlist');

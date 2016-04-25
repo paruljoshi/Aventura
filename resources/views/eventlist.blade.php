@@ -169,17 +169,19 @@ $('input[name=paid]').change(function(){
       @endif
       @if(Session::has('events'))
       @foreach(Session::get('events') as $event)
-        <div class="adventure-item-div" onClick="document.forms['event-detail'].submit();">
+        <div class="adventure-item-div" >
         <form action ="/eventdetail" method="post" name = "event-detail">
-          <h1 class="event-heading">{{ $event->name }}</h1>
+          <h1 class="event-heading">{{ str_limit($event->name, $limit = 18, $end = '...')}}</h1>
           <div class="w-row">
-            <div class="w-col w-col-6 reviews">{{ $event->ratings }}<img src="images/reviewStars3.png">
+            <div class="w-col w-col-6 reviews">{{ $event->ratings }} <img src="images/reviewStars3.png">
             </div>
             <div class="w-col w-col-6">
-              <div class="reviews">20 Reviews {{ $event->ticket }} Tickets</div>
+            <div class="reviews">
+              <input type="submit" value="{{$event->reviewCount}} Reviews" class="w-button reviews"></input>
+            </div>
             </div>
           </div>
-          <p class="adventure-description">{{ $event->desc }}</p>
+          <p class="adventure-description">{{ str_limit($event->desc, $limit = 100, $end = '...')}}</p>
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>
           <input type="submit" name="readmore" value="Read More" class="w-button event-summary-button" style="margin-left: 10px;"></input>

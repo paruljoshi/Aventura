@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PurchaseTableSeeder::class);
         $this->call(SearchTableSeeder::class);
         $this->call(ReportTableSeeder::class); 
+        $this->call(ReviewTableSeeder::class); 
     }
 }
 
@@ -120,6 +121,23 @@ class PurchaseTableSeeder extends Seeder
                 'price' =>rand(0,1000),
                 'expirydate'=> $faker->date($format = 'Y-m-d'),
                 'address'=>$faker->address,
+            ]);
+        }
+    }
+}
+
+class ReviewTableSeeder extends Seeder
+{
+    
+    public function run()
+    {
+        $faker = Faker::create();
+        foreach (range(1,10) as $index) {
+            DB::table('reviews')->insert([
+                'desc' => $faker->company,
+                'ratings' => rand(0,5),
+                'user_id' => rand(1,10),
+                'event_id'=>rand(0,10),
             ]);
         }
     }

@@ -19,6 +19,7 @@ class CreateReviewsTable extends Migration
             $table->integer('ratings');
             $table->integer('user_id');
             $table->integer('event_id');
+            //add user name too
             $table->timestamps();
         });
     }

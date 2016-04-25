@@ -72,11 +72,17 @@
     <div class="w-section event-view-review-section">
       <div class="event-details-view-review">
         <h1 class="event-details-heading">Reviews</h1>
+        @if($eventReviews)
+        @foreach($eventReviews as $review)
         <div class="event-details-user-review"><img src="images/reviewStars5.png">
-          <h4>By abc</h4>
-          <h4>On :date</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+          <h4>By {{$review->user_id}}  On : date</h4>
+          <p>
+          {{$review->desc}}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
         </div>
+        _ _ _ _ _ _ _ _ _ _ _ _ _
+        @endforeach
+        @endif
       </div>
     </div>
     <div class="w-section event-map-section">
@@ -84,21 +90,3 @@
     </div>
   </div>
   @endsection
-<!--<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-@if($event_id)
-{{$event_id}}
-@endif
-@if($eventDetails)
-@foreach($eventDetails as $event)
-{{$event->name}}
-@endforeach
-@endif
-
-</body>
-</html>
--->

@@ -31,7 +31,7 @@
   <div class="w-section section">
     <div class="w-container">
       <div class="section-title-group">
-        <h2 class="section-heading centered">search, attend,buy</h2>
+        <h2 class="section-heading centered welcomepage">search, attend,buy</h2>
         <div class="section-subheading center">find adventure wherever you are!</div>
       </div>
       <div class="w-row">
@@ -61,7 +61,7 @@
   <div class="w-section section accent">
     <div class="w-container">
       <div class="section-title-group">
-        <h2 class="section-heading centered white">locate / BUY / Promote /earn&nbsp;</h2>
+        <h2 class="section-heading centered white welcomepage">locate / BUY / Promote /earn&nbsp;</h2>
         <h4 class="section-subheading"><strong>Search</strong> the adventures around you or anywhere or <strong>A</strong><strong>dd*</strong> your own adventure !!</h4>
       </div>
       <div class="w-row">
@@ -88,7 +88,7 @@
   <div class="w-section section">
     <div class="w-container">
       <div class="section-title-group">
-        <h2 class="section-heading centered">lets go with "aventura"</h2>
+        <h2 class="section-heading centered welcomepage">lets go with "aventura"</h2>
         <div class="section-subheading center">-blessed are the curious, for they shall have adventure!!</div>
       </div>
       <div data-duration-in="300" data-duration-out="100" class="w-tabs tabs-wrapper"></div>
