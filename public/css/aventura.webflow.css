@@ -780,6 +780,46 @@ p {
   float: left;
 }
 
+.add-event-div {
+  border-top: 1px solid #000;
+  background-color: #fff;
+}
+
+.add-event-heading {
+  width: 350px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 160px;
+  padding-top: 30px;
+  border-width: 0px;
+  border-bottom-style: none;
+  border-bottom-color: #192024;
+  font-weight: 600;
+}
+
+.add-event-form {
+  width: 800px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 160px;
+  padding-top: 15px;
+}
+
+.add-event-button {
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+
+.add-event-select-city {
+  width: 200px;
+}
+
+.add-event-timings {
+  display: inline-block;
+  width: 80px;
+  margin-right: 10px;
+}
+
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
   opacity: 0;
   -webkit-transform: translate(0px, 50px);

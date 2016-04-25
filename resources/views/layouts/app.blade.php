@@ -27,7 +27,7 @@
 <body>
 <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" class="w-nav navigation-bar">
     <div class="w-container nav-bar-links-container"><img width="70" src="images/Drawing-layerExport (1).jpeg" class="aventura-icon">
-    <a href="{{ url('landingpage') }}" class="w-nav-brand brand-link"><h1 class="brand-text">Aventura</h1></a>
+    <a href="{{ url('/') }}" class="w-nav-brand brand-link"><h1 class="brand-text">Aventura</h1></a>
         <nav role="navigation" class="w-nav-menu w-clearfix navigation-menu">
             @if (Auth::guest())
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>

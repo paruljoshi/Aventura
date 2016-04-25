@@ -180,8 +180,9 @@ $('input[name=paid]').change(function(){
             </div>
           </div>
           <p class="adventure-description">{{ $event->desc }}</p>
-           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>
+          <input type="submit" name="readmore" value="Read More" class="w-button event-summary-button" style="margin-left: 10px;"></input>
         </div>
         </form>
         @endforeach
