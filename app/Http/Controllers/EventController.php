@@ -111,7 +111,7 @@ class EventController extends Controller
         $eventDetails = Event::where('id', '=',$eventId)->get();
         $eventReviews = Review::where('event_id', '=', $eventId)->get();
         if($eventId){
-            return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews]);
+            return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'None']);
         }
 
     }

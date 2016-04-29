@@ -138,6 +138,7 @@ class ReviewTableSeeder extends Seeder
                 'ratings' => rand(0,5),
                 'user_id' => rand(1,10),
                 'event_id'=>rand(0,10),
+                'user_name'=>$faker->name
             ]);
         }
     }

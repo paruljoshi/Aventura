@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+@if($status!='None')
+  <p>{{$status}}</p>
+@endif
   <div class="event-detail-div">
     <div class="w-section event-summary-section">
       <div class="event-summary-background-div">
@@ -47,18 +50,19 @@
           <a href="#" class="w-button event-details-button">Buy Now</a>
       </div>
     </div>
-    @endforeach
-  @endif
+    
     <div class="w-section event-add-review-section">
       <div class="event-add-review-div">
         <h1 class="event-details-heading">Share your adventure</h1>
         <div class="w-form">
-          <form id="wf-form-review-form" name="wf-form-review-form" data-name="review-form" class="w-clearfix">
+          <form id="wf-form-review-form" name="wf-form-review-form" data-name="review-form" class="w-clearfix" action="/savereview" method="post">
             <label for="name">Your rating</label>
-            <input id="name" type="text" placeholder="Enter your name" name="name" data-name="Name" class="w-input">
+            <input id="name" type="text" placeholder="Enter your name" name="rating" data-name="Name" class="w-input">
             <label for="review">Your experience</label>
-            <input id="review" type="email" placeholder="Please write at least 100 lines about your experience for this adventure" name="review" data-name="review" required="required" class="w-input">
+            <input id="review" type="text" placeholder="Please write at least 100 lines about your experience for this adventure" name="review" data-name="review" required="required" class="w-input">
             <input type="submit" value="Submit Review" data-wait="Please wait..." class="w-button event-details-button">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>
           </form>
           <div class="w-form-done">
             <p>Thank you! Your submission has been received!</p>
@@ -69,6 +73,9 @@
         </div>
       </div>
     </div>
+    @endforeach
+    @endif
+
     <div class="w-section event-view-review-section">
       <div class="event-details-view-review">
         <h1 class="event-details-heading">Reviews</h1>
@@ -89,4 +96,5 @@
       <div data-widget-latlng="51.511214,-0.119824" data-widget-style="roadmap" data-widget-zoom="12" class="w-widget w-widget-map events-map"></div>
     </div>
   </div>
+
   @endsection

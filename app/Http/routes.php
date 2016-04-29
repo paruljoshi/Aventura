@@ -20,6 +20,8 @@ Route::post('/eventsave','EventController@save');
 Route::post('/filter','EventController@filter');
 Route::get('/eventlist','EventController@index');
 
+Route::post('/savereview','ReviewController@savereview');
+
 Route::get('/cart','CartController@index');
 
 

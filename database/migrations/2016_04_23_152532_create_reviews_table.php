@@ -18,8 +18,8 @@ class CreateReviewsTable extends Migration
             $table->string('desc');
             $table->integer('ratings');
             $table->integer('user_id');
+            $table->string('user_name');
             $table->integer('event_id');
-            //add user name too
             $table->timestamps();
         });
     }
