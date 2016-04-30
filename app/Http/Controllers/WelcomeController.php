@@ -40,9 +40,16 @@ class WelcomeController extends Controller
                             ->where('event_id','=',$event->id)
                             ->count();
                 $event->reviewCount = $reviews;
+                $ratingRadio ='0';
+                $priceRadio =' ';
+                $dateRadio =' ';
+
             }
     		if($events){
-    		    Session::put('events',$events);
+    		    //Session::put('events',$events);
+                //Session::put('ratingsList','0');
+                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio]);
+
                 return view('eventlist');
     		}else{
     			$message = "Sorry no results found";

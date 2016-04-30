@@ -1,114 +1,94 @@
 @extends('layouts.master')
 
 @section('content')
-<script type="text/javascript">
-$('input[name=paid]').change(function(){
+  <script>
+  var j = jQuery.noConflict();
+  j(document).ready(function(){
+    j('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  </script>
+  <script type="text/javascript">
+  $('input[name=paid]').change(function(){
      $('form').submit();
-});
-</script>
+  });
+  </script>
   <div class="w-row search-column">
     <div class="w-col w-col-3 search-column">
       <div class="w-form search-option-form">
         <form id="wf-form-search-options" name="wf-form-search-options" action="/filter" method="post" data-name="search-options" class="search-option-form">
           <div class="activity-option">
             <label for="name">Activities :</label>
-            <div class="w-checkbox">
+            @if(Session::has('events'))
+            @foreach(Session::get('events') as $event)
+            <div class="w-radio">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input id="checkbox" type="checkbox" name="activity" data-name="Checkbox" value ="Bungee Jumping" onchange="this.form.submit();"  class="w-checkbox-input">
-              <label for="checkbox" class="w-form-label">Bungee Jumping</label>
+              <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>
+              <input id="radio" type="radio" name="activity" data-name="Radio" value ="{{$event->id}}" onchange="this.form.submit();"  class="w-radio-input" >
+              <label for="radio" class="w-form-label">{{$event->name}}</label>
             </div>
-            <div class="w-checkbox">
-              <input id="checkbox" type="checkbox" name="activity" value="Go Karting" onchange="this.form.submit();" data-name="Checkbox 11" class="w-checkbox-input">
-              <label for="checkbox-11" class="w-form-label">Go Karting</label>
-            </div>
-            <div class="w-checkbox">
-              <input id="checkbox-10" type="checkbox" name="activity" value="Ice Skating" onchange="this.form.submit();" data-name="Checkbox 10" class="w-checkbox-input">
-              <label for="checkbox-10" class="w-form-label">Ice Skating</label>
-            </div>
-            <div class="w-checkbox">
-              <input id="checkbox-9" type="checkbox" name="activity" value="Kayaking" onchange="this.form.submit();"  data-name="Checkbox 9" class="w-checkbox-input">
-              <label for="checkbox-9" class="w-form-label">Kayaking</label>
-            </div>
-            <div class="w-checkbox">
-              <input id="checkbox-8" type="checkbox" name="activity" value="RiverRafting" onchange="this.form.submit();"  data-name="Checkbox 8" class="w-checkbox-input">
-              <label for="checkbox-8" class="w-form-label">RiverRafting</label>
-            </div>
-            <div class="w-checkbox">
-              <input id="checkbox-7" type="checkbox" name="activity" value="Sky Diving" data-name="Checkbox 7" onchange="this.form.submit();"  class="w-checkbox-input">
-              <label for="checkbox-7" class="w-form-label">Sky Diving</label>
-            </div>
+            @endforeach
+            @endif
           </div>
           <div class="activity-option">
             <label class="price-option">Price :</label>
             <div class="w-radio">
-              <input id="radio" type="radio" name="price" value="0" onchange="this.form.submit();" data-name="Radio" class="w-radio-input">
+              <input id="radio" type="radio" name="price" value="0" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="0") echo "checked"; ?>>
               <label for="radio" class="w-form-label">0</label>
             </div>
             <div class="w-radio">
-              <input id="radio" type="radio" name="price" value="50" onchange="this.form.submit();" data-name="Radio" class="w-radio-input">
+              <input id="radio" type="radio" name="price" value="50" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="50") echo "checked"; ?>>
               <label for="radio" class="w-form-label">0 - 50</label>
             </div>
             <div class="w-radio">
-              <input id="radio" type="radio" name="price" value="150" onchange="this.form.submit();" data-name="Radio" class="w-radio-input">
+              <input id="radio" type="radio" name="price" value="150" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="150") echo "checked"; ?>>
               <label for="radio" class="w-form-label">50 - 150</label>
             </div>
             <div class="w-radio">
-              <input id="radio" type="radio" name="price" value="300" onchange="this.form.submit();" data-name="Radio" class="w-radio-input">
+              <input id="radio" type="radio" name="price" value="300" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="300") echo "checked"; ?>>
               <label for="radio" class="w-form-label">150 - 300</label>
             </div>
             <div class="w-radio">
-              <input id="radio" type="radio" name="price" value="301" onchange="this.form.submit();" data-name="Radio" class="w-radio-input">
+              <input id="radio" type="radio" name="price" value="301" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="301") echo "checked"; ?>>
               <label for="radio" class="w-form-label">300 above</label>
             </div>
           </div>
           <div class="activity-option">
             <label>Ratings :</label>
-            <div class="w-checkbox">
-              <input id="5Stars" type="checkbox" name="ratings" data-name="5Stars" class="w-checkbox-input" onchange="this.form.submit();" value ="5" ><img src="images/reviewStars5.png">
-              <label for="checkbox-12" class="w-form-label">&nbsp;&amp; Up</label>
+            <div class="w-radio">
+              <input id="5Stars" type="radio" name="ratings" data-name="5Stars"  class="w-radio-input" onchange="this.form.submit();" value ="5" <?php if(Session::get('ratingRadio')=="5") echo "checked"; ?>><img src="images/reviewStars5.png">
+              <label for="radio-12" class="w-form-label">&nbsp;&amp; Up</label>
             </div>
-            <div class="w-checkbox">
-              <input id="4Stars-4" type="checkbox" name="ratings" data-name="4Stars" class="w-checkbox-input"  onchange="this.form.submit();" value="4"><img src="images/reviewStars4.png">
-              <label for="checkbox-12" class="w-form-label">&nbsp;&amp; Up</label>
+            <div class="w-radio">
+              <input id="4Stars-4" type="radio" name="ratings" data-name="4Stars" class="w-radio-input"  onchange="this.form.submit();" value="4" <?php if(Session::get('ratingRadio')=="4") echo "checked"; ?>><img src="images/reviewStars4.png">
+              <label for="radio-12" class="w-form-label">&nbsp;&amp; Up</label>
             </div>
-            <div class="w-checkbox">
-              <input id="3Stars" type="checkbox" name="ratings" data-name="3Stars" class="w-checkbox-input"  onchange="this.form.submit();" value="3"><img src="images/reviewStars3.png">
-              <label for="checkbox-12" class="w-form-label">&nbsp;&amp; Up</label>
+            <div class="w-radio">
+              <input id="3Stars" type="radio" name="ratings" data-name="3Stars" class="w-radio-input"  onchange="this.form.submit();" value="3" <?php if(Session::get('ratingRadio')=="3") echo "checked"; ?>><img src="images/reviewStars3.png">
+              <label for="radio-12" class="w-form-label">&nbsp;&amp; Up</label>
             </div>
-            <div class="w-checkbox">
-              <input id="2Stars" type="checkbox" name="ratings" data-name="2Stars" class="w-checkbox-input"  onchange="this.form.submit();" value="2"><img src="images/reviewStars2.png">
-              <label for="checkbox-12" class="w-form-label">&nbsp;&amp; Up</label>
+            <div class="w-radio">
+              <input id="2Stars" type="radio" name="ratings" data-name="2Stars" class="w-radio-input"  onchange="this.form.submit();" value="2" <?php if(Session::get('ratingRadio')=="2") echo "checked"; ?>><img src="images/reviewStars2.png">
+              <label for="radio-12" class="w-form-label">&nbsp;&amp; Up</label>
             </div>
-          </div>
+         </div>
           <div class="activity-option">
             <label>Day :</label>
             <div class="w-radio">
-              <input id="radio-2" type="radio" name="date" value="00:00:0000" onchange="this.form.submit();" data-name="Radio 2" class="w-radio-input">
+              <input id="radio-2" type="radio" name="date" value="today" onchange="this.form.submit();" data-name="Radio 2" class="w-radio-input" <?php if(Session::get('dateRadio')=="today") echo "checked"; ?>>
               <label for="radio-2" class="w-form-label">Today</label>
             </div>
             <div class="w-radio w-clearfix">
-              <input id="radio-2" type="radio" name="date" value="manual" onchange="this.form.submit();" data-name="Radio 2" class="w-radio-input">
+              <input id="radio-2" type="radio" name="date" value="manual"  data-name="Radio 2" class="w-radio-input" <?php if(Session::get('dateRadio')!="today" && Session::get('dateRadio')!=" " && Session::get('dateRadio')!=" nil") echo "checked"; ?>>
               <label for="radio-2" class="w-form-label">Select a Date : </label>
-              <select>
-                <option value="00"> </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-              <select>
-                <option value="00"> </option>
-                <option value="1">Jan</option>
-                <option value="2">Feb</option>
-                <option value="3">Mar</option>
-                <option value="4">Apr</option>
-              </select>
-              <select>
-                <option value="0000"> </option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-              </select>
+              <input type="text" id="datepicker" name="manualDate" placeholder="Select date" onchange="this.form.submit();" value="<?php 
+              $date= Session::get('dateRadio'); 
+              if($date!="today" && $date != " " && $date !='nil')
+                {echo $date;}
+              ?>
+              ">
             </div>
           </div>
           <div class="activity-option">

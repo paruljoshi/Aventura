@@ -66,36 +66,49 @@ class EventController extends Controller
     	}else{
             $events = Session::get('events');
             foreach($events as $index => $event){
+                $ratingRadio = 'nil';
+                $priceRadio = 'nil';
+                $dateRadio = 'nil';
                 if(!empty($request->input('ratings'))){
                     $rating = $request->input('ratings');
                     $dbRating = $event->ratings;
-                    if ($dbRating != $rating)
+                    $ratingRadio = $rating;
+                    if ($dbRating < $rating)
                         unset($events[$index]);
                 }
                 if(!empty($request->input('price'))){
                     $price = $request->input('price');
                     $dbPrice = $event->ticket;
+                    $priceRadio = $price;
                     if ($dbPrice < $price)
                         unset($events[$index]);
                 }
                 // clear out the date and time 
                 if(!empty($request->input('date'))){
                     $date = $request->input('date');
+                    if($date =="today"){
+                        $dateRadio = "today";
+                        $getDate = date('Y-m-d');
+                    }
+                    if($date =="manual"){
+                        $getDate = $request->input('manualDate');
+                        $dateRadio = $getDate;
+                    }
                     $dbDate = $event->timings;
-                    if ($dbDate != $date)
+                    if ($dbDate != $getDate)
                         unset($events[$index]);
                 }
                 if(!empty($request->input('activity'))){
                     $activity = $request->input('activity');
-                    $dbActivity = $event->name;
+                    $dbActivity = $event->id;
                     if ($dbActivity != $activity)
                         unset($events[$index]);
                 }
             }
-                session(['events' => $events]);
+                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio]);
 
             if($events){
-    			return view('eventlist',['events' => $events]);
+    			return view('eventlist',['events' => $events,'ratingRadio' => $ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio]);
     		}else{
     			$message = "Sorry no results found !!";
 

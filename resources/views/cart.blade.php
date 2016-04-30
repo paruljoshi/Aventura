@@ -1,5 +1,26 @@
 <html>
+<head>
+<style type="text/css">
+	
+</style>
+<title>jQuery UI Datepicker - Display month &amp; year menus</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  </script>
+</head>
 <body>
-	<h2>Search results:</h2>
+ 
+<p>Date: <input type="text" id="datepicker"></p>
+
+
 </body>
 </html>

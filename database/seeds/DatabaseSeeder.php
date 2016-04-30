@@ -37,7 +37,7 @@ class UserTableSeeder extends Seeder
                 'city' => $faker->city,
                 'state' =>$faker->state,
                 'country'=>$faker->country,
-                'date_of_birth'=>$faker->date($format = 'Y-m-d', $max = 'now'),
+                'date_of_birth'=>$faker->date($format = 'm-d-Y', $max = 'now'),
                 'phoneno'=>$faker->phonenumber,
                 'zipcode'=>$faker->postcode,
                 'image'=>$faker->imageUrl($width = 640, $height = 480),
