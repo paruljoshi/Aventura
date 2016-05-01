@@ -22,7 +22,8 @@ class CreateEventsTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('country');
-            $table->date('timings');
+            $table->date('date');
+            $table->integer('timings');
             $table->integer('ticket');
             $table->integer('ratings');
             $table->boolean('recommended');

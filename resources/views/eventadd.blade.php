@@ -1,14 +1,24 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
-	@if (session('status'))
-        {{ session('status') }}
-	@endif
+     <script>
+  var j = jQuery.noConflict();
+  j(document).ready(function(){
+    j('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  </script>
 
-	@if ($errors->any())
+  <div class="add-event-div">
+  @if (session('status'))
+        {{ session('status') }}
+  @endif
+
+  @if ($errors->any())
         {{ implode('', $errors->all(':message')) }}
     @endif
-  <div class="add-event-div">
     <h1 class="add-event-heading">Add your event :</h1>
     <div class="w-form">
       <form id="email-form" name="email-form" data-name="Email Form" class="add-event-form" action="/eventsave" method="post">
@@ -26,7 +36,7 @@
             <label for="email">Description:</label>
           </div>
           <div class="w-col w-col-10">
-            <textarea id="eventDesc-7" placeholder="Enter your event description" name="eventDesc" data-name="eventDesc" required="required" class="w-input"></textarea>
+            <textarea id="eventDesc-7" placeholder="Enter your event description" name="eventDesc" data-name="eventDesc" required="required" class="w-input" style="height: 600px;"></textarea>
           </div>
         </div>
         <div class="w-row">
@@ -39,24 +49,44 @@
         </div>
         <div class="w-row">
           <div class="w-col w-col-2">
+            <label for="email">Date :</label>
+          </div>
+          <div class="w-col w-col-10">
+            <input type="text" id="datepicker" placeholder="Select date" name="eventDate" data-name="Event Desc 6" class="w-input">
+          </div>
+        </div>
+         
+        <div class="w-row">
+          <div class="w-col w-col-2">
             <label for="email">Timings:</label>
           </div>
           <div class="w-col w-col-10">
-            <select id="hours" name="hours" data-name="hours" class="w-select add-event-timings">
-              <option value="">00</option>
-              <option value="First">First Choice</option>
-              <option value="Second">Second Choice</option>
-              <option value="Third">Third Choice</option>
+            <select id="hours" name="eventHours" data-name="hours" class="w-select add-event-timings">
+                <option value="00"> </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
             </select>
-            <select id="minutes" name="minutes" data-name="minutes" class="w-select add-event-timings">
-              <option value="">00</option>
-              <option value="First">First Choice</option>
-              <option value="Second">Second Choice</option>
-              <option value="Third">Third Choice</option>
+            <select id="minutes" name="eventMinutes" data-name="minutes" class="w-select add-event-timings">
+                <option value="00"> </option>
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
             </select>
-            <select id="field-6" name="field-6" data-name="Field 6" class="w-select add-event-timings">
-              <option value="pm">P.M.</option>
-              <option value="am">A.M.</option>
+            <select id="field-6" name="eventAM" data-name="Field 6" class="w-select add-event-timings">
+              <option value="0"> </option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
             </select>
           </div>
         </div>

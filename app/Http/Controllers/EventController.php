@@ -38,12 +38,24 @@ class EventController extends Controller
         }else{
             if(Auth::check()){
                 $userId = Auth::user()->id;
+            }else{
+                return redirect('/home');
             }
+            $hours = $request->input('eventHours');
+            $minutes = $request->input('eventMinutes');
+            $eventAM = $request->input('eventAM');
+            if($eventAM == "PM"){
+                $hours =12+ $hours;
+            }
+            $eventTimings = "$hours$minutes";
+
             $newEvent = new Event;
             $newEvent->name = $request->input('eventName');
             $newEvent->desc = $request->input('eventDesc');
             $newEvent->country = $request->input('eventCountry');
             $newEvent->ticket = $request->input('eventTicket');
+            $newEvent->date = $request->input('eventDate');
+            $newEvent->timings = $eventTimings;
             $newEvent->user_id = $userId;
             if($newEvent->save()){
                 return redirect('eventadd')->with('status', 'Event added successfully!');
@@ -65,10 +77,13 @@ class EventController extends Controller
                         ->withInput();
     	}else{
             $events = Session::get('events');
+            $ratingRadio = 'nil';
+            $priceRadio = 'nil';
+            $dateRadio = 'nil';
+            $hoursRadio = 'nil';
+            $minutesRadio = 'nil';
+            $eventAMradio = 'nil';
             foreach($events as $index => $event){
-                $ratingRadio = 'nil';
-                $priceRadio = 'nil';
-                $dateRadio = 'nil';
                 if(!empty($request->input('ratings'))){
                     $rating = $request->input('ratings');
                     $dbRating = $event->ratings;
@@ -83,7 +98,6 @@ class EventController extends Controller
                     if ($dbPrice < $price)
                         unset($events[$index]);
                 }
-                // clear out the date and time 
                 if(!empty($request->input('date'))){
                     $date = $request->input('date');
                     if($date =="today"){
@@ -98,6 +112,22 @@ class EventController extends Controller
                     if ($dbDate != $getDate)
                         unset($events[$index]);
                 }
+                if(!empty($request->input('eventAM'))){
+                    $hours = $request->input('eventHours');
+                    $minutes = $request->input('eventMinutes');
+                    $eventAM = $request->input('eventAM');
+                    $hoursRadio = $hours;
+                    $minutesRadio = $minutes;
+                    $eventAMradio = $eventAM;
+                    if($eventAM == "PM"){
+                        $hours =12+ $hours;
+                    }
+                    $eventTimings = "$hours$minutes";
+                    $dbTimings = $event->timings;
+                    $minutesRadio = $minutes;
+                    if ($dbTimings != $eventTimings)
+                        unset($events[$index]);
+                }
                 if(!empty($request->input('activity'))){
                     $activity = $request->input('activity');
                     $dbActivity = $event->id;
@@ -105,10 +135,10 @@ class EventController extends Controller
                         unset($events[$index]);
                 }
             }
-                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio]);
+                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio, 'eventAMradio' => $eventAMradio, 'hoursRadio' => $hoursRadio, 'minutesRadio' => $minutesRadio]);
 
             if($events){
-    			return view('eventlist',['events' => $events,'ratingRadio' => $ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio]);
+    			return view('eventlist',['events' => $events,'ratingRadio' => $ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio, 'hoursRadio' => $hoursRadio, 'minutesRadio' => $minutesRadio, 'eventAMradio' => $eventAMradio]);
     		}else{
     			$message = "Sorry no results found !!";
 

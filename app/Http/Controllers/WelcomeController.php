@@ -41,14 +41,18 @@ class WelcomeController extends Controller
                             ->count();
                 $event->reviewCount = $reviews;
                 $ratingRadio ='0';
-                $priceRadio =' ';
-                $dateRadio =' ';
-
+                $priceRadio ='nil';
+                $dateRadio ='nil';
+                $hoursRadio = 'nil';
+                $minutesRadio = 'nil';
+                $eventAMradio = 'nil';
+                $hoursRadio = 'nil';
+                $minutesRadio = 'nil';
             }
     		if($events){
     		    //Session::put('events',$events);
                 //Session::put('ratingsList','0');
-                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio]);
+                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio, 'eventAMradio' => $eventAMradio, 'hoursRadio' => $hoursRadio, 'minutesRadio' => $minutesRadio]);
 
                 return view('eventlist');
     		}else{

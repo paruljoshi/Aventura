@@ -139,6 +139,7 @@ p {
 
 .navigation-bar {
   float: none;
+  border-bottom: 1px solid #000;
   background-color: #fff;
 }
 
@@ -594,7 +595,6 @@ p {
   text-decoration: underline;
 }
 
-
 .icon {
   position: static;
   overflow: visible;
@@ -832,6 +832,14 @@ p {
   display: inline-block;
   width: 80px;
   margin-right: 10px;
+}
+
+.dropdownmenu {
+  margin-top: 65px;
+}
+
+.nav-dropdown-link {
+  background-color: #fff;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {

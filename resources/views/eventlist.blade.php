@@ -81,7 +81,7 @@
               <label for="radio-2" class="w-form-label">Today</label>
             </div>
             <div class="w-radio w-clearfix">
-              <input id="radio-2" type="radio" name="date" value="manual"  data-name="Radio 2" class="w-radio-input" <?php if(Session::get('dateRadio')!="today" && Session::get('dateRadio')!=" " && Session::get('dateRadio')!=" nil") echo "checked"; ?>>
+              <input id="radio-2" type="radio" name="date" value="manual"  data-name="Radio 2" class="w-radio-input" <?php if(Session::get('dateRadio')!="today" && Session::get('dateRadio')!=" " && Session::get('dateRadio')!="nil") echo "checked"; ?>>
               <label for="radio-2" class="w-form-label">Select a Date : </label>
               <input type="text" id="datepicker" name="manualDate" placeholder="Select date" onchange="this.form.submit();" value="<?php 
               $date= Session::get('dateRadio'); 
@@ -93,39 +93,32 @@
           </div>
           <div class="activity-option">
             <label>Timings :</label>
-            <select>
+            <select name="eventHours">
                 <option value="0"> </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="1" <?php if(Session::get('hoursRadio')=="1"){echo "selected= 'selected'";} ?>>1</option>
+                <option value="2" <?php if(Session::get('hoursRadio')=="2"){echo "selected= 'selected'";} ?>>2</option>
+                <option value="3" <?php if(Session::get('hoursRadio')=="3"){echo "selected= 'selected'";} ?>>3</option>
+                <option value="4" <?php if(Session::get('hoursRadio')=="4"){echo "selected= 'selected'";} ?>>4</option>
+                <option value="5" <?php if(Session::get('hoursRadio')=="5"){echo "selected= 'selected'";} ?>>5</option>
+                <option value="6" <?php if(Session::get('hoursRadio')=="6"){echo "selected= 'selected'";} ?>>6</option>
+                <option value="7" <?php if(Session::get('hoursRadio')=="7"){echo "selected= 'selected'";} ?>>7</option>
+                <option value="8" <?php if(Session::get('hoursRadio')=="8"){echo "selected= 'selected'";} ?>>8</option>
+                <option value="9" <?php if(Session::get('hoursRadio')=="9"){echo "selected= 'selected'";} ?>>9</option>
+                <option value="10" <?php if(Session::get('hoursRadio')=="10"){echo "selected= 'selected'";} ?>>10</option>
+                <option value="11" <?php if(Session::get('hoursRadio')=="11"){echo "selected= 'selected'";} ?>>11</option>
+                <option value="12" <?php if(Session::get('hoursRadio')=="12"){echo "selected= 'selected'";} ?>>12</option>
               </select>
-              <select>
-                <option value="0"></option>
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
-              </select>
-              <select>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select> To 
-            <select>
+              <select name="eventMinutes">
                 <option value="0"> </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="00" <?php if(Session::get('minutesRadio')=="00"){echo "selected= 'selected'";} ?>>00</option>
+                <option value="15" <?php if(Session::get('minutesRadio')=="15"){echo "selected= 'selected'";} ?>>15</option>
+                <option value="30" <?php if(Session::get('minutesRadio')=="30"){echo "selected= 'selected'";} ?>>30</option>
+                <option value="45" <?php if(Session::get('minutesRadio')=="45"){echo "selected= 'selected'";} ?>>45</option>
               </select>
-              <select>
-                <option value="0"></option>
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
-              </select>
-              <select>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
+              <select onchange="this.form.submit();" name="eventAM">
+                <option value="0"> </option>
+                <option value="AM" <?php if(Session::get('eventAMradio')=="AM"){echo "selected= 'selected'";} ?>>AM</option>
+                <option value="PM" <?php if(Session::get('eventAMradio')=="PM"){echo "selected= 'selected'";} ?>>PM</option>
               </select>
               <label>   </label>
           </div>
