@@ -82,7 +82,7 @@
         @if($eventReviews)
         @foreach($eventReviews as $review)
         <div class="event-details-user-review"><img src="images/reviewStars5.png">
-          <h4>By {{$review->user_id}}  On : date</h4>
+          <h4>By: {{$review->user_name}}       On: {{$review->date}}</h4>
           <p>
           {{$review->desc}}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>

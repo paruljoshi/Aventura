@@ -32,6 +32,7 @@ class ReviewController extends Controller
             $newReview = new Review;
             $newReview->ratings = $request->input('rating');
             $newReview->desc = $request->input('review');
+            $newReview->date = date('Y-m-d');
             $newReview->user_id = $userId;
             $newReview->event_id = $request->input('event_id');
             if($newReview->save()){
