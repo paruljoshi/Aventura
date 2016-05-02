@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  
+
 </head>
 <body>
 <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" class="w-nav navigation-bar">
@@ -50,6 +50,9 @@
                   {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" role="menu">
+                   <li><a href="{{ url('eventadd') }}"><i class="fa fa-btn fa-sign-out"></i>Add Event</a></li>
+                    <li><a href="{{ url('viewreport') }}"><i class="fa fa-btn fa-sign-out"></i>Report Event</a></li>
+                     <li><a href="{{ url('cart') }}"><i class="fa fa-btn fa-sign-out"></i>View Orders</a></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                   </ul>
                 </li>
@@ -62,7 +65,42 @@
     </div>
   </div>
     @yield('content')
-
+    <hr style="display: block; margin-top: 0.5em; margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;">
+ <div class="w-section footer">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-4 spc">
+          <h5>about Aventura</h5>
+          <p>Aventura is designed to solve the problem of tedious search on adventurous activities online. This application helps user to locate nearby activities, paid or free one's too.</p>
+        </div>
+        <div class="w-col w-col-4 spc">
+          <h5>useful links</h5><a href="{{ url('home') }}" class="footer-link">Your Account</a><a href="{{ url('cart') }}" class="footer-link">Your Orders</a><a href="#" class="footer-link">Shipping and Rental Rates and Policies</a><a href="{{ url('home') }}" class="footer-link">Manage your Profile</a>
+        </div>
+        <div class="w-col w-col-4">
+          <h5>social</h5>
+          <div class="w-clearfix footer-link-wrapper"><img width="20" src="images/social-18.svg" class="info-icon"><a href="#" class="footer-link with-icon">Twitter</a>
+          </div>
+          <div class="w-clearfix footer-link-wrapper"><img width="20" src="images/social-03.svg" class="info-icon"><a href="#" class="footer-link with-icon">Facebook</a>
+          </div>
+          <div class="w-clearfix footer-link-wrapper"><img width="20" src="images/social-11.svg" class="info-icon"><a href="#" class="footer-link with-icon">Pinterest</a>
+          </div>
+          <div class="w-clearfix footer-link-wrapper"><img width="20" src="images/social-06.svg" class="info-icon"><a href="#" class="footer-link with-icon">Google</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-section footer center">
+    <div class="w-container">
+      <div class="footer-text">Copyright © Aventura 2016</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

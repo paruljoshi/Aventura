@@ -59,11 +59,11 @@ class EventTableSeeder extends Seeder
             DB::table('events')->insert([
                 'name' => $faker->company,
                 'desc' =>$faker->catchPhrase,
-                'building' =>$faker->buildingNumber,
-                'street'=> $faker->streetAddress,
+                'address'=> $faker->streetAddress,
                 'city' => $faker->city,
                 'state' =>$faker->state,
                 'country'=>$faker->country,
+                'zipcode'=>rand(111111,999999),
                 'ticket' => rand(0,5000),
                 'ratings' => rand(1,5),
                 'reviewed' =>rand(0,1),
@@ -102,6 +102,8 @@ class ReportTableSeeder extends Seeder
                 'description' => $faker->text,
                 'reason' => $faker->text,
                 'status' =>rand(0,1),
+                'user_id' => rand(1,10),
+                'event_id'=>rand(0,10),
             ]);
         }
     }

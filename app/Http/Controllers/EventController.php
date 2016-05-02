@@ -11,6 +11,7 @@ use DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Review;
+use App\Report;
 
 class EventController extends Controller
 {
@@ -22,6 +23,40 @@ class EventController extends Controller
 
     public function add(){
         return view('eventadd');
+    }
+
+    public function viewreport(){
+        $events = DB::table('events')->get();
+        return view('eventreport',['events'=>$events, 'status' =>' ']);
+    }
+
+    public function savereport(Request $request){
+        $validator = Validator::make($request->all(), [
+        ]);
+        if ($validator->fails()) {
+            return redirect('eventreport')
+                        ->withErrors($validator)
+                        ->withInput();
+        }else{
+            if(Auth::check()){
+                $userId = Auth::user()->id;
+            }
+            $newReport = new Report;
+            $newReport->user_id = $userId;
+            $newReport->event_id = $request->input('event_name');
+            $newReport->description = $request->input('eventDesc');
+            $newReport->reason = $request->input('eventReason'); 
+            $newReport->status = 'reviewing';
+            if($newReport->save()){
+                $events = DB::table('events')->get();
+                return view('eventreport',['events'=>$events, 'status' =>'Report details added successfully']);
+            }else{
+                return redirect('eventreport')
+                        ->withErrors($validator)
+                        ->withInput();
+            }
+
+        }
     }
 
     public function save(Request $request){
@@ -52,6 +87,10 @@ class EventController extends Controller
             $newEvent = new Event;
             $newEvent->name = $request->input('eventName');
             $newEvent->desc = $request->input('eventDesc');
+            $newEvent->address = $request->input('eventAddress');
+            $newEvent->city = $request->input('eventCity');
+            $newEvent->state = $request->input('eventState');
+            $newEvent->zipcode = $request->input('eventZipCode');
             $newEvent->country = $request->input('eventCountry');
             $newEvent->ticket = $request->input('eventTicket');
             $newEvent->date = $request->input('eventDate');

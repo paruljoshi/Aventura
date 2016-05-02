@@ -17,11 +17,11 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('desc');
-            $table->string('building');
-            $table->string('street');
+            $table->string('address');
             $table->string('city');
             $table->string('state');
             $table->string('country');
+            $table->integer('zipcode');
             $table->date('date');
             $table->integer('timings');
             $table->integer('ticket');

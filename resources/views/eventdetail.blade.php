@@ -34,7 +34,7 @@
               </div>
               <h4 class="event-summary-ticket-heading">Ticket Price: {{$event->ticket}}</h4>
               <h4 class="event-summary-ticket-heading">Timings: {{$event->timings}} </h4>
-              <h4 class="event-summary-ticket-heading">Address : {{$event->street}} {{$event->state}} {{$event->country}}</h4><a href="#" class="w-button event-summary-button">Buy Now</a>
+              <h4 class="event-summary-ticket-heading">Address : {{$event->street}} {{$event->state}} {{$event->country}}</h4><a href="{{ url('cart') }}" class="w-button event-summary-button">Buy Now</a>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
         {{$event-> desc}}
           <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
           <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-          <a href="#" class="w-button event-details-button">Buy Now</a>
+          <a href="{{ url('cart') }}" class="w-button event-details-button">Buy Now</a>
       </div>
     </div>
     
@@ -59,7 +59,7 @@
             <label for="name">Your rating</label>
             <input id="name" type="text" placeholder="Enter your name" name="rating" data-name="Name" class="w-input">
             <label for="review">Your experience</label>
-            <input id="review" type="text" placeholder="Please write at least 100 lines about your experience for this adventure" name="review" data-name="review" required="required" class="w-input">
+            <textarea id="review" type="text" placeholder="Please write at least 100 lines about your experience for this adventure" name="review" data-name="review" required="required" class="w-input"></textarea>
             <input type="submit" value="Submit Review" data-wait="Please wait..." class="w-button event-details-button">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="event_id" value = "{{$event->id}}" ></input>

@@ -20,7 +20,8 @@
 <body>
  
 <p>Date: <input type="text" id="datepicker"></p>
-
-
+@if($status)
+{{$status}}
+@endif
 </body>
 </html>

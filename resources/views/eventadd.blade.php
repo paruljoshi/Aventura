@@ -97,34 +97,54 @@
           <div class="w-col w-col-10">
             <textarea id="eventAddress" placeholder="Enter your event address" name="eventAddress" data-name="eventAddress" required="required" class="w-input"></textarea>
             <div class="w-row">
-              <div class="w-col w-col-4">
-                <select id="state" name="eventState" data-name="state" class="w-select add-event-select-city">
-                  <option value="">Select City</option>
-                  <option value="First">First Choice</option>
-                  <option value="Second">Second Choice</option>
-                  <option value="Third">Third Choice</option>
+            <div class="w-col w-col-4">
+                <select id="field-3" name="eventCountry" class="w-select add-event-select-city">
+                  <option value="">Select Country</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="China">China</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="India">India</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="USA">USA</option>
+                  <option value="Vatican City">Vatican City</option>
+                  <option value="Zambia">Zambia</option>                
                 </select>
               </div>
               <div class="w-col w-col-8">
-                <select id="field-2" name="field-2" class="w-select add-event-select-city">
+                <select id="field-2" name="eventState" class="w-select add-event-select-city">
                   <option value="">Select State</option>
-                  <option value="First">First Choice</option>
-                  <option value="Second">Second Choice</option>
-                  <option value="Third">Third Choice</option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="California">California</option>
+                  <option value="Idaho">Idaho</option>
                 </select>
               </div>
             </div>
             <div class="w-row">
               <div class="w-col w-col-4">
-                <select id="field-3" name="eventCountry" class="w-select add-event-select-city">
-                  <option value="">Select Country</option>
-                  <option value="First">San Francisco</option>
-                  <option value="Second">Second Choice</option>
-                  <option value="Third">Third Choice</option>
+                <select id="state" name="eventCity" data-name="state" class="w-select add-event-select-city">
+                  <option value="">Select City</option>
+                  <option value="Chicago">Chicago</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="San Jose">San Jose</option>
+                  <option value="San Francisco">San Francisco</option>
                 </select>
               </div>
               <div class="w-col w-col-8">
-                <input id="zip-code" type="text" placeholder="Enter your zip code" name="zip-code" required="required" data-name="zip-code" class="w-input add-event-select-city">
+                <input id="zip-code" type="text" placeholder="Enter your zip code" name="eventZipCode" required="required" data-name="zip-code" class="w-input add-event-select-city">
               </div>
             </div>
           </div>
