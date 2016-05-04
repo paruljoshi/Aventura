@@ -134,7 +134,7 @@ class EventController extends Controller
                     $price = $request->input('price');
                     $dbPrice = $event->ticket;
                     $priceRadio = $price;
-                    if ($dbPrice < $price)
+                    if ($dbPrice <= $price)
                         unset($events[$index]);
                 }
                 if(!empty($request->input('date'))){

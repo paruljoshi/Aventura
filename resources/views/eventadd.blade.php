@@ -36,7 +36,7 @@
             <label for="email">Description:</label>
           </div>
           <div class="w-col w-col-10">
-            <textarea id="eventDesc-7" placeholder="Enter your event description" name="eventDesc" data-name="eventDesc" required="required" class="w-input" style="height: 600px;"></textarea>
+            <textarea id="eventDesc-7" placeholder="Enter your event description" name="eventDesc" data-name="eventDesc" required="required" class="w-input" style="height: 300px;"></textarea>
           </div>
         </div>
         <div class="w-row">

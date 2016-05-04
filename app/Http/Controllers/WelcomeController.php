@@ -39,16 +39,20 @@ class WelcomeController extends Controller
                 $reviews = DB::table('reviews')
                             ->where('event_id','=',$event->id)
                             ->count();
+                $ratingAvg = DB::table('reviews')
+                        ->where('event_id','=',$event->id)
+                        ->avg('ratings');
                 $event->reviewCount = $reviews;
-                $ratingRadio ='0';
-                $priceRadio ='nil';
-                $dateRadio ='nil';
-                $hoursRadio = 'nil';
-                $minutesRadio = 'nil';
-                $eventAMradio = 'nil';
-                $hoursRadio = 'nil';
-                $minutesRadio = 'nil';
+                $event->ratingAvg = floor($ratingAvg);
             }
+            $ratingRadio ='0';
+            $priceRadio ='nil';
+            $dateRadio ='nil';
+            $hoursRadio = 'nil';
+            $minutesRadio = 'nil';
+            $eventAMradio = 'nil';
+            $hoursRadio = 'nil';
+            $minutesRadio = 'nil';
     		if($events){
     		    //Session::put('events',$events);
                 //Session::put('ratingsList','0');

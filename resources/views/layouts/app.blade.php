@@ -38,7 +38,6 @@
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
               <a href="{{ url('/login') }}" class="w-nav-link navigation-link">Log In</a>
               <a href="{{ url('/register') }}" class="w-nav-link navigation-link">Sign Up</a>
-              <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
               <a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
               <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
             @else
@@ -68,11 +67,6 @@
     </div>
   </div>
     @yield('content')
-    <hr style="display: block; margin-top: 0.5em; margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;">
  <div class="w-section footer">
     <div class="w-container">
       <div class="w-row">

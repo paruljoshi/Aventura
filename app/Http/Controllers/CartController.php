@@ -10,6 +10,11 @@ class CartController extends Controller
 {
     //
     public function index(){
-    	return view('cart');
+    	$rating = 'nil';
+    	return view('cart',['rating'=> $rating]);
+    }
+    public function rating(Request $request){
+    	$rating = $request->input('rating');
+    	return view('cart',['rating'=> $rating]);
     }
 }

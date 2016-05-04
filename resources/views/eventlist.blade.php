@@ -36,7 +36,7 @@
             <label class="price-option">Price :</label>
             <div class="w-radio">
               <input id="radio" type="radio" name="price" value="0" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="0") echo "checked"; ?>>
-              <label for="radio" class="w-form-label">0</label>
+              <label for="radio" class="w-form-label">Free</label>
             </div>
             <div class="w-radio">
               <input id="radio" type="radio" name="price" value="50" onchange="this.form.submit();" data-name="Radio" class="w-radio-input" <?php if(Session::get('priceRadio')=="50") echo "checked"; ?>>
@@ -146,7 +146,20 @@
         <form action ="/eventdetail" method="post" name = "event-detail">
           <h1 class="event-heading">{{ str_limit($event->name, $limit = 18, $end = '...')}}</h1>
           <div class="w-row">
-            <div class="w-col w-col-6 reviews">{{ $event->ratings }} <img src="images/reviewStars3.png">
+            <div class="w-col w-col-6 reviews">
+            @if($event->ratingAvg == 0)
+            <img src="images/0ReviewStars.png" style="height: 30px; width: 100px;">
+          @elseif($event->ratingAvg == 1)
+          <img src="images/1ReviewStars.png" style="height: 26px; width: 100px;">
+        @elseif($event->ratingAvg == 2)
+          <img src="images/2ReviewStars.png" style="height: 30px; width: 100px;">
+        @elseif($event->ratingAvg == 3)
+          <img src="images/3ReviewStars.png" style="height: 30px; width: 100px;">
+        @elseif($event->ratingAvg == 4)
+          <img src="images/4ReviewStars.png" style="height: 30px; width: 100px;">
+        @elseif($event->ratingAvg == 5)
+          <img src="images/5ReviewStars.png" style="height: 30px; width: 100px;">
+        @endif
             </div>
             <div class="w-col w-col-6">
             <div class="reviews">

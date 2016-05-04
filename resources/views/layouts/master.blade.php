@@ -39,7 +39,6 @@
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
               <a href="{{ url('/login') }}" class="w-nav-link navigation-link">Log In</a>
               <a href="{{ url('/register') }}" class="w-nav-link navigation-link">Sign Up</a>
-              <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
               <a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
               <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
 
@@ -51,7 +50,7 @@
               <!-- Authentication Links -->
               <div data-delay="0" data-hover="1" class="w-dropdown">
           <div class="w-dropdown-toggle" style="height: 40px; padding-top: 20px; width: 140px;">
-            <div>{{ Auth::user()->name }}</div>
+            <p style="margin-top: -10px; font-size: 15px; font-weight: 400;color: #337ab7;">{{ Auth::user()->name }}</p>
             <div class="w-icon-dropdown-toggle"></div>
           </div>
           <nav class="w-dropdown-list">
