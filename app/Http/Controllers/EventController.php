@@ -173,6 +173,7 @@ class EventController extends Controller
                     if ($dbActivity != $activity)
                         unset($events[$index]);
                 }
+
             }
                 session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio, 'eventAMradio' => $eventAMradio, 'hoursRadio' => $hoursRadio, 'minutesRadio' => $minutesRadio]);
 
@@ -192,6 +193,14 @@ class EventController extends Controller
         $eventId = $request->input('event_id');
         $eventDetails = Event::where('id', '=',$eventId)->get();
         $eventReviews = Review::where('event_id', '=', $eventId)->get();
+        $reviews = DB::table('reviews')
+                    ->where('event_id','=',$eventId)
+                    ->count();
+        $ratingAvg = DB::table('reviews')
+                    ->where('event_id','=',$eventId)
+                    ->avg('ratings');
+        $eventDetails->reviewCount = $reviews;
+        $eventDetails->ratingAvg = floor($ratingAvg);
         if($eventId){
             return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'None']);
         }

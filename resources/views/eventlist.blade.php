@@ -148,15 +148,14 @@
           <div class="w-row">
             <div class="w-col w-col-6 reviews">
             @if($event->ratingAvg == 0)
-            <img src="images/0ReviewStars.png" style="height: 30px; width: 100px;">
           @elseif($event->ratingAvg == 1)
-          <img src="images/1ReviewStars.png" style="height: 26px; width: 100px;">
+          <img src="images/1AvgReview.png" style="height: 25px; width: 35px;">
         @elseif($event->ratingAvg == 2)
-          <img src="images/2ReviewStars.png" style="height: 30px; width: 100px;">
+          <img src="images/2AvgReview.png" style="height: 30px; width: 100px;">
         @elseif($event->ratingAvg == 3)
-          <img src="images/3ReviewStars.png" style="height: 30px; width: 100px;">
+          <img src="images/3AvgReview.png" style="height: 25px; width: 70px;">
         @elseif($event->ratingAvg == 4)
-          <img src="images/4ReviewStars.png" style="height: 30px; width: 100px;">
+          <img src="images/4AvgReview.png" style="height: 29px; width: 100px;">
         @elseif($event->ratingAvg == 5)
           <img src="images/5ReviewStars.png" style="height: 30px; width: 100px;">
         @endif
