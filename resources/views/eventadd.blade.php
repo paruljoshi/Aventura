@@ -10,7 +10,14 @@
     });
   });
   </script>
-
+   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/aventura.webflow.css">
+ <div class="w-section hero-section centered addevent">
+    <div data-ix="new-interaction" class="w-container">
+      <h1 data-ix="fade-in-bottom-page-loads" class="hero-heading">Add Your Event</h1>
+    </div>
+  </div>
   <div class="add-event-div">
   @if (session('status'))
         {{ session('status') }}
@@ -19,7 +26,6 @@
   @if ($errors->any())
         {{ implode('', $errors->all(':message')) }}
     @endif
-    <h1 class="add-event-heading">Add your event :</h1>
     <div class="w-form">
       <form id="email-form" name="email-form" data-name="Email Form" class="add-event-form" action="/eventsave" method="post">
       	<input type="hidden" name="_token" value="{{ csrf_token() }}">

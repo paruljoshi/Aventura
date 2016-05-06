@@ -139,7 +139,7 @@ p {
 
 .navigation-bar {
   float: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 0px none #000;
   background-color: #fff;
 }
 
@@ -198,11 +198,29 @@ p {
   padding-top: 195px;
   padding-bottom: 195px;
   border-bottom: 4px solid #69b9ff;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/cl-adventure-2.jpg'), url('../images/example-bg.png');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/cl-adventure-2.jpg'), url('../images/example-bg.png');
-  background-position: 0px 0px, 50% 50%, 0px 0px;
-  background-size: auto, cover, 125px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/cl-adventure-2.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../images/cl-adventure-2.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
   text-align: center;
+}
+
+.hero-section.centered.addevent {
+  padding-top: 130px;
+  padding-bottom: 130px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/adventures-by-disney-north-america-wyoming-hero-01-scenic-horseback-ride.jpg'), url('../images/cl-adventure-2.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../images/adventures-by-disney-north-america-wyoming-hero-01-scenic-horseback-ride.jpg'), url('../images/cl-adventure-2.jpg');
+  background-position: 0px 0px, 50% 50%, 50% 50%;
+  background-size: auto, cover, cover;
+}
+
+.hero-section.centered.reportevent {
+  padding-top: 130px;
+  padding-bottom: 130px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/usertesting.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/usertesting.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
 }
 
 .hero-heading {
@@ -815,8 +833,9 @@ p {
   width: 800px;
   margin-top: 0px;
   margin-right: 0px;
-  margin-left: 160px;
-  padding-top: 15px;
+  margin-left: 300px;
+  padding-top: 35px;
+  text-align: left;
 }
 
 .add-event-button {

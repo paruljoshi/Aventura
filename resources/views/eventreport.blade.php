@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="w-section hero-section centered reportevent">
+    <div data-ix="new-interaction" class="w-container">
+      <h1 data-ix="fade-in-bottom-page-loads" class="hero-heading">Report An Event</h1>
+    </div>
+  </div>
 <div class="add-event-div">
 @if($status)
     {{ $status }}
@@ -9,7 +14,6 @@
   @if ($errors->any())
         {{ implode('', $errors->all(':message')) }}
     @endif
-    <h1 class="add-event-heading">Report an Event :</h1>
     <div class="w-form">
       <form id="email-form" name="email-form" data-name="Email Form" class="add-event-form" action="/savereport" method="post">
         <div class="w-row">
