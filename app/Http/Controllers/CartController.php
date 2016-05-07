@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Cart;
 
 class CartController extends Controller
 {
     //
     public function index(){
-    	$rating = 'nil';
-    	return view('cart',['rating'=> $rating]);
+    	$cart = Cart::content();
+    	return view('cart',['cart'=> $cart]);
     }
     public function rating(Request $request){
     	$rating = $request->input('rating');

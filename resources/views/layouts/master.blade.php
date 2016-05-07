@@ -39,14 +39,20 @@
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
               <a href="{{ url('/login') }}" class="w-nav-link navigation-link">Log In</a>
               <a href="{{ url('/register') }}" class="w-nav-link navigation-link">Sign Up</a>
-              <a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
-              <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
+              <a href="{{ url('cart') }}" class="w-nav-link navigation-link cart">
+                @if(Session::has('cartCount'))
+                {{Session::get('cartCount')}}
+                @endif
+              </a>
 
             @else
               <a href="{{ url('eventadd') }}" class="w-button event-details-button" style="height: 60px; padding-top: 20px; width: 140px; border-radius: 0px;"><img src="images/plus_icon.png" style="height: 20px;width: 30px; padding-right: 10px; " >Add Event</a>
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
-              <a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
-              <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
+              <a href="{{ url('cart') }}" class="w-nav-link navigation-link cart">
+                @if(Session::has('cartCount'))
+                {{Session::get('cartCount')}}
+                @endif
+              </a>
               <!-- Authentication Links -->
               <div data-delay="0" data-hover="1" class="w-dropdown">
           <div class="w-dropdown-toggle" style="height: 40px; padding-top: 20px; width: 140px;">

@@ -11,6 +11,7 @@ use DB;
 use Illuminate\Support\Facades\Session;
 use App\Review;
 use App\Http\Controllers\stdClass;
+use Cart;
 
 
 class WelcomeController extends Controller
@@ -45,6 +46,7 @@ class WelcomeController extends Controller
                 $event->reviewCount = $reviews;
                 $event->ratingAvg = floor($ratingAvg);
             }
+            $cartCount = Cart::count();
             $ratingRadio ='0';
             $priceRadio ='nil';
             $dateRadio ='nil';
@@ -56,7 +58,7 @@ class WelcomeController extends Controller
     		if($events){
     		    //Session::put('events',$events);
                 //Session::put('ratingsList','0');
-                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio, 'eventAMradio' => $eventAMradio, 'hoursRadio' => $hoursRadio, 'minutesRadio' => $minutesRadio]);
+                session(['events' => $events, 'ratingRadio' =>$ratingRadio, 'priceRadio' =>$priceRadio, 'dateRadio' =>$dateRadio, 'eventAMradio' => $eventAMradio, 'hoursRadio' => $hoursRadio, 'minutesRadio' => $minutesRadio, 'cartCount' => $cartCount]);
 
                 return view('eventlist');
     		}else{

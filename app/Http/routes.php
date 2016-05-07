@@ -21,10 +21,14 @@ Route::post('/filter','EventController@filter');
 Route::get('/eventlist','EventController@index');
 Route::get('/viewreport','EventController@viewreport');
 Route::post('/savereport','EventController@savereport');
+Route::post('/savetocart','EventController@savetocart');
 
 Route::post('/savereview','ReviewController@savereview');
 
+
 Route::get('/cart','CartController@index');
+Route::post('/deleteitem','CartController@deleteitem');
+
 
 
 Route::get('/', function () {

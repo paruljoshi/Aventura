@@ -137,6 +137,18 @@ p {
   color: #2e9dff;
 }
 
+.navigation-link.cart {
+  margin-top: 5px;
+  padding-top: 4px;
+  padding-right: 24px;
+  padding-left: 17px;
+  background-image: url('../images/shoppingCart.png');
+  background-position: 50% -109%;
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
 .navigation-bar {
   float: none;
   border-bottom: 0px none #000;
@@ -223,6 +235,17 @@ p {
   background-size: auto, cover;
 }
 
+.hero-section.centered.cart {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/cart.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../images/cart.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-repeat: repeat, repeat;
+  background-attachment: scroll, scroll;
+}
+
 .hero-heading {
   margin-bottom: 30px;
   color: #fff;
@@ -231,6 +254,10 @@ p {
   font-weight: 300;
   letter-spacing: 4px;
   text-transform: uppercase;
+}
+
+.hero-heading.cart {
+  font-size: 30px;
 }
 
 .hero-subheading {
@@ -859,6 +886,46 @@ p {
 
 .nav-dropdown-link {
   background-color: #fff;
+}
+
+.cartheading {
+  border-bottom: 1px solid #000;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.checkoutbutton {
+  position: static;
+  display: block;
+  width: auto;
+  text-align: center;
+}
+
+.bagsubheading {
+  border-bottom: 1px dashed #000;
+  font-weight: 400;
+}
+
+.bagsubheading.date {
+  margin-left: 20px;
+  border-bottom-width: 0px;
+}
+
+.itemdetailheading {
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.shoppingbagrow {
+  margin: 15px 180px 50px;
+}
+
+.itemdetailssection {
+  margin-top: 20px;
+}
+
+.itemdeletesection {
+  border-top: 1px dashed #000;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Review;
 use App\Report;
+use Cart;
 
 class EventController extends Controller
 {
@@ -28,6 +29,44 @@ class EventController extends Controller
     public function viewreport(){
         $events = DB::table('events')->get();
         return view('eventreport',['events'=>$events, 'status' =>' ']);
+    }
+
+    public function savetocart(Request $request){
+       $validator =Validator::make($request->all(),[
+       ]);
+       if($validator->fails()){
+        return redirect('eventDetails')
+                ->withErrors($validator)
+                ->withInput();
+       }else{
+/*        if(Auth::check()){
+                $userId = Auth::user()->id;
+            }else{
+                //use Session Id
+            }*/      
+            $eventId = $request->input('event_id');
+            $events = DB::table('events')
+                            ->where('id','=',$eventId)
+                            ->get();
+            foreach($events as $index => $event){
+                Cart::add(array('id' => $eventId, 'name' => $event->name, 'qty' => 1, 'price' => $event->ticket, 'date' => $event->date));
+            }
+            $cartCount = Cart::count();
+            $eventDetails = Event::where('id', '=',$eventId)->get();
+            $eventReviews = Review::where('event_id', '=', $eventId)->get();
+            $reviews = DB::table('reviews')
+                        ->where('event_id','=',$eventId)
+                        ->count();
+            $ratingAvg = DB::table('reviews')
+                        ->where('event_id','=',$eventId)
+                        ->avg('ratings');
+            $eventDetails->reviewCount = $reviews;
+            $eventDetails->ratingAvg = floor($ratingAvg);
+            session(['cartCount' => $cartCount]);
+            if($eventId){
+                return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'Event added to cart successfuly','cartCount' =>$cartCount]);
+            }
+        }
     }
 
     public function savereport(Request $request){
@@ -201,8 +240,9 @@ class EventController extends Controller
                     ->avg('ratings');
         $eventDetails->reviewCount = $reviews;
         $eventDetails->ratingAvg = floor($ratingAvg);
+        $cartCount = Cart::count();
         if($eventId){
-            return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'None']);
+            return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'None','cartCount' => $cartCount]);
         }
 
     }

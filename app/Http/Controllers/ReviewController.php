@@ -30,17 +30,27 @@ class ReviewController extends Controller
             }else{
             	return redirect('/home');
             }
+            $eventId = $request->input('event_id');
             $newReview = new Review;
             $newReview->ratings = $request->input('rating');
             $newReview->desc = $request->input('review');
             $newReview->date = date('Y-m-d');
             $newReview->user_name = $userName;
             $newReview->user_id = $userId;
-            $newReview->event_id = $request->input('event_id');
+            $newReview->event_id = $eventId;
             if($newReview->save()){
             //    return redirect('eventdetail')->with('status', 'Event added successfully!');
             $eventDetails = Event::where('id', '=',$request->input('event_id'))->get();
             $eventReviews = Review::where('event_id', '=', $request->input('event_id'))->get();
+            $ratingAvg = DB::table('reviews')
+                    ->where('event_id','=',$eventId)
+                    ->avg('ratings');
+            $reviews = DB::table('reviews')
+                    ->where('event_id','=',$eventId)
+                    ->count();
+            $eventDetails->reviewCount = $reviews;                    
+            $eventDetails->ratingAvg = floor($ratingAvg);
+        
         
             return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'Review saved successfully!']);
             }else{

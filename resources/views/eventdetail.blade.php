@@ -40,14 +40,20 @@
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
               <a href="{{ url('/login') }}" class="w-nav-link navigation-link">Log In</a>
               <a href="{{ url('/register') }}" class="w-nav-link navigation-link">Sign Up</a>
-              <a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
-              <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
+              <a href="{{ url('cart') }}" class="w-nav-link navigation-link cart">
+                @if(Session::has('cartCount'))
+                {{Session::get('cartCount')}}
+                @endif
+              </a>
 
             @else
               <a href="{{ url('eventadd') }}" class="w-button event-details-button" style="height: 60px; padding-top: 20px; width: 140px; border-radius: 0px;"><img src="images/plus_icon.png" style="height: 20px;width: 30px; padding-right: 10px; " >Add Event</a>
               <a href="index.html" class="w-nav-link navigation-link">&nbsp;Help</a>
-              <a href="{{ url('cart') }}" class="w-nav-link navigation-link">0</a>
-              <a href="{{ url('cart') }}" ><img width="58" src="images/trolly.png"></a>
+              <a href="{{ url('cart') }}" class="w-nav-link navigation-link cart">
+                @if(Session::has('cartCount'))
+                {{Session::get('cartCount')}}
+                @endif
+              </a>
               <!-- Authentication Links -->
               <div data-delay="0" data-hover="1" class="w-dropdown">
           <div class="w-dropdown-toggle" style="height: 40px; padding-top: 20px; width: 140px;">
@@ -115,7 +121,12 @@
               </div>
               <h4 class="event-summary-ticket-heading">Ticket Price: {{$event->ticket}}</h4>
               <h4 class="event-summary-ticket-heading">Timings: {{$event->timings}} </h4>
-              <h4 class="event-summary-ticket-heading">Address : {{$event->street}} {{$event->state}} {{$event->country}}</h4><a href="{{ url('cart') }}" class="w-button event-summary-button">Add To Cart</a>
+              <h4 class="event-summary-ticket-heading">Address : {{$event->street}} {{$event->state}} {{$event->country}}</h4>
+              <form action="/savetocart" method="post">
+                <input type="hidden" name="event_id" value="{{$event->id}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input class="w-button event-summary-button" type="submit" value="Add To Cart" style="width: 120px;"></input>
+              </form>
             </div>
           </div>
         </div>
