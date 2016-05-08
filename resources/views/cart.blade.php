@@ -44,13 +44,13 @@
                   <h2 class="itemdetailheading">{{$item->name}}</h2>
                 </div>
                 <div class="w-col w-col-3">
-                  <h2 class="itemdetailheading">1</h2>
-                </div>
-                <div class="w-col w-col-3">
                   <h2 class="itemdetailheading">{{$item->qty}}</h2>
                 </div>
                 <div class="w-col w-col-3">
                   <h2 class="itemdetailheading">{{$item->price}}</h2>
+                </div>
+                <div class="w-col w-col-3">
+                  <h2 class="itemdetailheading">{{$item->subtotal}}</h2>
                 </div>
               </div>
               <div class="w-row itemdeletesection">
@@ -58,7 +58,13 @@
                   <h4 class="bagsubheading date">Date: {{$item->date}}</h4>
                 </div>
                 <div class="w-col w-col-7"></div>
-                <div class="w-col w-col-2"><a href="{{ url('deleteitem') }}">Remove&nbsp;</a>
+                <div class="w-col w-col-2">
+                  <form action="deleteitem" method="post">
+                    <input type="hidden" name="rowId" value="{{$item->rowid}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button class="btn btn-link" type="submit">Remove</button>
+                  </form>
+                  
                 </div>
               </div>
             </div>
@@ -81,10 +87,10 @@
               </p>
             </div>
             <div class="w-col w-col-3">
-              <p>$178.00
+              <p>${{Cart::total()}}
                 <br>$0.00
                 <br>$0.00
-                <br><strong>$178.00</strong>
+                <br><strong>${{Cart::total()}}</strong>
               </p>
             </div>
           </div><a href="#" class="w-button checkoutbutton">&nbsp;Checkout</a>

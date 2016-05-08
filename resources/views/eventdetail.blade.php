@@ -125,7 +125,18 @@
               <form action="/savetocart" method="post">
                 <input type="hidden" name="event_id" value="{{$event->id}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input class="w-button event-summary-button" type="submit" value="Add To Cart" style="width: 120px;"></input>
+                @if($status=='Added to Cart')
+                  <input class="w-button event-summary-button" value="Added" style="width: 120px;"></input>
+                @else
+                  <select default="qty" style="margin-right: 10px;" name = "quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <input class="w-button event-summary-button" type="submit" value="Add To Cart" style="width: 120px;"></input>
+                @endif
               </form>
             </div>
           </div>

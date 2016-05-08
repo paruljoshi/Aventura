@@ -39,17 +39,13 @@ class EventController extends Controller
                 ->withErrors($validator)
                 ->withInput();
        }else{
-/*        if(Auth::check()){
-                $userId = Auth::user()->id;
-            }else{
-                //use Session Id
-            }*/      
             $eventId = $request->input('event_id');
+            $quantity = $request->input('quantity');
             $events = DB::table('events')
                             ->where('id','=',$eventId)
                             ->get();
             foreach($events as $index => $event){
-                Cart::add(array('id' => $eventId, 'name' => $event->name, 'qty' => 1, 'price' => $event->ticket, 'date' => $event->date));
+                Cart::add(array('id' => $eventId, 'name' => $event->name, 'qty' => $quantity, 'price' => $event->ticket, 'date' => $event->date));
             }
             $cartCount = Cart::count();
             $eventDetails = Event::where('id', '=',$eventId)->get();
@@ -64,7 +60,7 @@ class EventController extends Controller
             $eventDetails->ratingAvg = floor($ratingAvg);
             session(['cartCount' => $cartCount]);
             if($eventId){
-                return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'Event added to cart successfuly','cartCount' =>$cartCount]);
+                return view('eventdetail',['eventDetails'=> $eventDetails , 'eventReviews' => $eventReviews, 'status'=> 'Added to Cart','cartCount' =>$cartCount]);
             }
         }
     }
