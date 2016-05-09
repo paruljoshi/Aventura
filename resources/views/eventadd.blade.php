@@ -136,6 +136,7 @@
                   <option value="Alabama">Alabama</option>
                   <option value="California">California</option>
                   <option value="Idaho">Idaho</option>
+                  <option value="New York">New York</option>
                 </select>
               </div>
             </div>
@@ -145,8 +146,11 @@
                   <option value="">Select City</option>
                   <option value="Chicago">Chicago</option>
                   <option value="Illinois">Illinois</option>
+                  <option value="New York City">New York City</option>
                   <option value="San Jose">San Jose</option>
                   <option value="San Francisco">San Francisco</option>
+                  <option value="Seattle">Seattle</option>
+                  <option value="Switzerland">Switzerland</option>
                 </select>
               </div>
               <div class="w-col w-col-8">

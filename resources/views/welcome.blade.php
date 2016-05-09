@@ -13,7 +13,7 @@
       <div>
         <div class="w-form">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input id="searchButton" type="text" placeholder="Enter any location" style="height: 45px; width: 435px;" name="search" data-name="searchButton" class="w-input searchtext form-control">
+            <input id="searchButton" type="text" placeholder="Enter any location/event" style="height: 45px; width: 435px;" name="search" data-name="searchButton" class="w-input searchtext form-control">
           </form>
           @if ($errors->any())
             {{ implode('', $errors->all(':message')) }}

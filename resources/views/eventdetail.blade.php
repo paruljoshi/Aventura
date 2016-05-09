@@ -126,7 +126,7 @@
                 <input type="hidden" name="event_id" value="{{$event->id}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 @if($status=='Added to Cart')
-                  <input class="w-button event-summary-button" value="Added" style="width: 120px;"></input>
+                  <input class="w-button event-summary-button" value="Added" style="width: 90px;"></input>
                 @else
                   <select default="qty" style="margin-right: 10px;" name = "quantity">
                     <option value="1">1</option>
